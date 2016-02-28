@@ -1,6 +1,17 @@
 #!/usr/bin/python
-def application(environ, start_response):
-  qs = environ['QUERY_STRING']
-  ls = qs.split("&")
-  start_response('200 OK', [('Content-Type', 'text/plain')])
-  return [ "\n".join(ls) ]
+import urlparse
+
+def application(env, start_response):
+    data = urlparse.parse_qsl(env["QUERY_STRING"], True)
+
+    result = ""
+
+    for key, value in data:
+        result += key + "=" + value + "\n"
+
+    status = '200 OK'
+    headers = [('Content-Type', 'text/plain')]
+
+    start_response(status, headers)
+
+    return result
