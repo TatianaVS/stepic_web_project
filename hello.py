@@ -1,3 +1,4 @@
+#!/usr/bin/python
 def application(environ, start_response):
   qs = environ['QUERY_STRING']
   ls = qs.split("&")
