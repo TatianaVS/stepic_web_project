@@ -1,3 +1,4 @@
+#!/usr/bin/python
 CONFIG = {
     'mode': 'wsgi',
     'working_dir': '/home/box/web',
