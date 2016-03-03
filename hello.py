@@ -1,23 +1,16 @@
 #!/usr/bin/python
-from cgi import parse_qs                                                        
+def app(environ, start_response):
 
-def application(environ, start_response):
+    data = ''
 
-	queryString = parse_qs(environ['QUERY_STRING'], keep_blank_values=True)
-	body = ''
-	print(queryString)
-	for key, value in queryString.items() :
-		for element in value :
-			body += key + '='                                       
-			body += element + '\r\n'
+    d = environ['QUERY_STRING'].split('&')
+    for e in d:
+	data += e + '\n'
 
-	print(body)                                                             
-		
-	status = '200 OK'
-
-	response_headers = [
-		('Content-Type', 'text/plain'),
-	]
-	start_response(status, response_headers)                                    
-
-	return [body]
+    status = '200 OK'
+    response_headers = [
+        ('Content-type','text/plain'),
+        ('Content-Length', str(len(data)))
+    ]
+    start_response(status, response_headers)
+    return [data]
