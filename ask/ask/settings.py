@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'het%o-3v2hpi!wk$d*@_i38rcsqjc-3bq+wu$#cktm0fmk7_=u'
+SECRET_KEY = 'kdfeejt1$j*i&h$4zy4r6w0&(iznitggm%(h##9j$42-fpnch)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,13 +28,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'qa',
+	'django.contrib.admin',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
+	'qa',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,8 +56,11 @@ WSGI_APPLICATION = 'ask.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE' : 'django,.db.backends.mysql',
+        'NAME' : 'qa',
+		'DATABASE_HOST' : '/var/run/mysql',
+		'USER' : 'qauser',
+		'PASSWORD' : 'qapass',
     }
 }
 
@@ -79,7 +82,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-)
