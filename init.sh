@@ -3,7 +3,7 @@ mysql -uroot -e "CREATE USER 'qauser'@'localhost' IDENTIFIED BY 'qapass';
 					GRANT ALL ON qa.* TO 'qauser'@'localhost';"
 
 
-sudo python /home/box/web/ask/manage.py syncbd
+sudo python /home/box/web/ask/manage.py syncdb
 
 sudo rm -r /etc/nginx/sites-enabled/default
 sudo ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
