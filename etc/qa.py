@@ -1,5 +1,5 @@
 CONFIG = {
-    'mode': 'django',
+    'mode': 'django.db.backends.mysql',
     'working_dir': '/home/box/web/ask',
     #'python': '/usr/bin/python',
     'args': (
