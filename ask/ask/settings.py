@@ -56,7 +56,7 @@ WSGI_APPLICATION = 'ask.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE' : 'django,.db.backends.mysql',
+        'ENGINE' : 'django,.db.backends.sqlite3',
         'NAME' : 'qa',
 		'DATABASE_HOST' : '/var/run/mysql',
 		'USER' : 'qauser',
