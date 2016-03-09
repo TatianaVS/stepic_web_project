@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'box_django',
-        #'USER': 'tat',
+        #'USER': 'tatsam',
         'USER': 'root',
     }
 }
